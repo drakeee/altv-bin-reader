@@ -268,7 +268,6 @@ private:
 				vehicleInfos_hashes[vehicleInfo->vehicleHash] = vehicleInfo;
 				vehicleInfos_strings[vehicleInfo->vehicleName] = vehicleInfo;
 
-				VehicleMods::ModKit a[2];
 				for (size_t i = 0; i < 2; i++)
 				{
 					if (vehicleInfo->vehicleModkitsTemp[i] == INVALID_MODKIT)
