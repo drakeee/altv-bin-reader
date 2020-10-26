@@ -1,6 +1,6 @@
 # altV Bin Reader
 
-Hey there! I just made some basic reader which can read vehmodels.bin file inside your server data folder.
+Hey there! I just made some basic reader which can read vehmodels.bin and vehmods.bin file inside your server data folder.
 
 Please note that you should change the SDK.h location in the header file to your correct location:
 https://github.com/drakeee/altv-bin-reader/blob/6f4c9f375595e778be361da822ad5d1b12b6e77f/CVehModels.h#L3
@@ -9,10 +9,10 @@ https://github.com/drakeee/altv-bin-reader/blob/6f4c9f375595e778be361da822ad5d1b
 
 The usage of this reader is very simple:
 ```cpp
-auto &dataReader = CVehModels::Instance(); //instantiate the reader
+auto &dataReader = VehicleModels::Instance(); //instantiate the reader
 
-CVehModels::VehicleInfo* bison_name = dataReader.GetVehicleInfo("bison"); //you can get vehicle informations by name
-CVehModels::VehicleInfo* bison_hash = dataReader.GetVehicleInfo(202226976); //also you can get vehicle informations by hash
+VehicleModels::VehicleInfo* bison_name = dataReader.GetVehicleInfo("bison"); //you can get vehicle informations by name
+VehicleModels::VehicleInfo* bison_hash = dataReader.GetVehicleInfo(202226976); //also you can get vehicle informations by hash
 
 auto bison_by_name = dataReader["bison"]; //you can also use the [] operator for both cases as well
 auto bison_by_hash = dataReader[202226976];
@@ -23,6 +23,7 @@ if (bison_name == nullptr)
 }
 else
 {
+	VehicleMods::ModKit* modKit = bison_name->vehicleModkits[0]; //it will return INVALID_MODKIT if there is no modkit in the given index
 	//vehicle information found
 }
 
